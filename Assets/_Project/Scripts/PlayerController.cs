@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
 	[SerializeField] Transform objectForLookRotation = null;
 	[SerializeField] Transform groundCheckerPoint = null;
 	[SerializeField] LayerMask groundLayer;
+	[SerializeField] AttackComponent attackComponent = null;
 
     PlayerInputAction playerInputAction;
 	Vector2 moveDir = Vector2.zero;
@@ -26,6 +27,8 @@ public class PlayerController : MonoBehaviour
 
 	private void Awake()
 	{
+		Cursor.lockState = CursorLockMode.Locked;
+		Cursor.visible = false;
         playerInputAction = new PlayerInputAction();
     }
 
@@ -50,19 +53,43 @@ public class PlayerController : MonoBehaviour
 		playerInputAction.Game.Look.performed += Look_performed;
 		playerInputAction.Game.Look.canceled += Look_canceled;
 
-		playerInputAction.Game.Shoot.performed += Shoot_performed;
-		playerInputAction.Game.Shoot.canceled += Shoot_canceled;
+		playerInputAction.Game.PrimaryAttack.performed += PrimaryAttack_performed;
+		playerInputAction.Game.PrimaryAttack.canceled += PrimaryAttack_canceled;
+
+		playerInputAction.Game.SecondaryAttack.performed += SecondaryAttack_performed;
+		playerInputAction.Game.SecondaryAttack.canceled += SecondaryAttack_canceled;
 	}
 
 	#region INPUT_EVENTS
-	private void Shoot_canceled(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+	private void SecondaryAttack_canceled(UnityEngine.InputSystem.InputAction.CallbackContext obj)
 	{
-		Debug.Log("End Shoot");
+		if (attackComponent != null)
+		{
+			attackComponent.StopSecondaryAttack();
+		}
 	}
 
-	private void Shoot_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+	private void SecondaryAttack_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
 	{
-		Debug.Log("Start Shoot");
+		if (attackComponent != null)
+		{
+			attackComponent.StartSecondaryAttack();
+		}
+	}
+	private void PrimaryAttack_canceled(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+	{
+		if (attackComponent != null)
+		{
+			attackComponent.StopPrimaryAttack();
+		}
+	}
+
+	private void PrimaryAttack_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+	{
+		if (attackComponent != null)
+		{
+			attackComponent.StartPrimaryAttack();
+		}
 	}
 
 	private void Look_canceled(UnityEngine.InputSystem.InputAction.CallbackContext obj)
@@ -79,7 +106,7 @@ public class PlayerController : MonoBehaviour
 	{
 		if (isGrounded)
 		{
-			rigidbody.AddForce(Vector3.up * jumpForce);
+			GetComponent<Rigidbody>().AddForce(Vector3.up * jumpForce);
 		}
 	}
 

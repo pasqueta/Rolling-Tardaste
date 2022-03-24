@@ -11,7 +11,8 @@
                     "id": "93b259e5-02ea-4495-a091-d8256dae4451",
                     "expectedControlType": "Vector2",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": true
                 },
                 {
                     "name": "Jump",
@@ -19,7 +20,8 @@
                     "id": "4ea74f49-2b9f-42c4-84f3-3e1ed155c3d3",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Look",
@@ -27,15 +29,26 @@
                     "id": "b8c4e85c-d45b-43c5-9a2d-e27ccaa65854",
                     "expectedControlType": "Vector2",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": true
                 },
                 {
-                    "name": "Shoot",
+                    "name": "PrimaryAttack",
                     "type": "Button",
                     "id": "f398691b-02dc-476a-8827-06f0941f8daa",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "SecondaryAttack",
+                    "type": "Button",
+                    "id": "f998e9f8-7d36-4e6b-bf41-a35b83ac4129",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -123,7 +136,18 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "PC",
-                    "action": "Shoot",
+                    "action": "PrimaryAttack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f10a08dd-0619-4043-95af-4776c5cdd053",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PC",
+                    "action": "SecondaryAttack",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
