@@ -357,7 +357,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  jumpForce: 1000
+  jumpForce: 20000
   inAirMovementMultiplicator: 0.5
   mouseSensitivity: 5
   rigidbody: {fileID: 5601264368756467482}
@@ -475,7 +475,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 842e6c1de16c9414c8c618d477e74426, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weapon: {fileID: 5601264368282886299}
+  weapon: {fileID: 0}
 --- !u!1 &5601264368812999238
 GameObject:
   m_ObjectHideFlags: 0
@@ -1009,14 +1009,3 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 904703628358768676, guid: feb46e1789085e242b5fb0ea77ba4c92, type: 3}
   m_PrefabInstance: {fileID: 4698828277414443198}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &5601264368282886299 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 904703628358768677, guid: feb46e1789085e242b5fb0ea77ba4c92, type: 3}
-  m_PrefabInstance: {fileID: 4698828277414443198}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a5ef60d58565d3945a121a26f015bdd8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

@@ -9,11 +9,9 @@ public class Weapon : MonoBehaviour
 	[SerializeField] string name;
 	[SerializeField] protected float primaryDamage;
 	[SerializeField] protected float primaryCooldown;
-	[SerializeField] protected bool primaryIsAutomatic;
 
 	[SerializeField] protected float secondaryDamage;
 	[SerializeField] protected float secondaryCooldown;
-	[SerializeField] protected bool secondaryIsAutomatic;
 
 	[SerializeField] protected Transform[] muzzles;
 

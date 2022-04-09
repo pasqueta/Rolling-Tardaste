@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LaserWeapon : Weapon
+public class AutomaticLaserWeapon : AutomaticWeapon
 {
     [SerializeField] LayerMask layerMask;
 
-	public override void StartPrimaryAttack()
+	protected override void PrimaryAttack()
 	{
-		base.StartPrimaryAttack();
+		base.PrimaryAttack();
 
         RaycastHit hit;
         // Does the ray intersect any objects excluding the player layer
